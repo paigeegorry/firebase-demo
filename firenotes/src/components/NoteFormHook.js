@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 export default function NoteFormHook({ handleSubmit }) {
   const [title, setTitle] = useState('');
@@ -13,6 +13,11 @@ export default function NoteFormHook({ handleSubmit }) {
   const handleBodyChange = ({ target }) => {
     setBody(target.value);
   }
+
+  useEffect(() => {
+    // component mounts and updates useEffect is called
+    // replaces componentDidMount, componentDidUpdate, componentWillUnmount 
+  }, []) // when ONLY [<whatever>] changes, useEffect is triggered
 
   return (
     // <button onClick={() => setCount(count+1)}>+ Count</button>
