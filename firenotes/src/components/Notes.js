@@ -1,6 +1,5 @@
 import React from 'react';
 import { connectFirestore } from './connectFirestore';
-import { notesCollection } from '../services/firebase';
 
 export default function Notes({ notes }) {
   const notesList = notes && notes.map(note => {

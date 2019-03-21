@@ -3,7 +3,8 @@ import './App.css';
 import NoteForm from './components/NoteForm';
 import { addNote } from './actions/notes';
 import { ConnectedNotes } from './components/Notes';
-import { ConnectedNote } from './components/Note';
+import { subscribe } from './services/firebase';
+import Header from './components/Header';
 
 class App extends Component {
 
@@ -12,9 +13,16 @@ class App extends Component {
     addNote({ title, body });
   }
 
+  componentDidMount() {
+    subscribe(user => {
+      console.log(user);
+    })
+  }
+
   render() {
     return (
       <>
+        <Header />
         <NoteForm 
           handleSubmit={this.handleSubmit} 
         />
